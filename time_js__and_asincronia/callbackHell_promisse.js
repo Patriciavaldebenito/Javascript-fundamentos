@@ -19,7 +19,7 @@ function onError(n){
 // var ids =[1,2,30000,10,15,20,21]; // evaluar con error
 var ids =[1,2,3,10,15,20,21];
 
-var promisses= ids.map((id)=>{
+var promisses= ids.map((id)=> {
 return getCharacters(id)
 })
 
