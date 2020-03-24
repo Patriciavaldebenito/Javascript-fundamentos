@@ -16,23 +16,22 @@ function onError(n){
     console.log(`No se obtiene dato para el id: ${n}`)
 }
 
-getCharacters(500)  //500
-.then((data) => {console.log(`El personaje es ${data.name}`)})
-.catch(id => onError(id))
+// var ids =[1,2,30000,10,15,20,21]; // evaluar con error
+var ids =[1,2,3,10,15,20,21];
 
+var promisses= ids.map((id)=>{
+return getCharacters(id)
+})
 
+Promise.all(promisses)
+.then(character => console.log(character))
+.catch(onError)
 
+// getCharacters(1)  //500
+// .then((data) => {
+//     console.log(`El personaje es ${data.name}`)
+//     return getCharacters(2)
+// })
+// .catch(id => onError(id))
 
-
-
-
-
-
-
-
-
-// promesas  valor que aún no conocemos
-// edo pending
-// edo = pending = si se resuelve exitosamente,  promesa se inicializa. Si se resuelve exitosamente pasa a fullfilled .then(val=>...)
-// edo = pending = si ocurre un error pasa a edo reject .catch(err=>...)
 
